@@ -20,3 +20,14 @@ console.log(result);
 var Add = function (val1, val2) {
     return val1 + val2;
 };
+// default parameter
+var fullName = function (first, last) {
+    if (last === void 0) { last = "Handi"; }
+    return first + " " + last;
+};
+console.log(fullName("Mark"));
+// optional parameter
+var getUmur = function (val1, val2) {
+    return val1 + val2;
+};
+console.log(getUmur("Mark"));
