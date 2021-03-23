@@ -40,9 +40,13 @@ var Admin = /** @class */ (function (_super) {
         var _this = _super.call(this, name, age) || this;
         _this.read = true;
         _this.write = true;
+        _this._email = "";
         _this.phone = phone;
         return _this;
     }
+    Admin.getNameRole = function () {
+        return "Hei";
+    };
     Admin.prototype.getRole = function () {
         return {
             read: this.read,
@@ -50,10 +54,31 @@ var Admin = /** @class */ (function (_super) {
         };
     };
     ;
+    Object.defineProperty(Admin.prototype, "email", {
+        get: function () {
+            return this._email;
+        },
+        set: function (value) {
+            if (value.length < 5) {
+                this._email = "Email salah";
+            }
+            else {
+                this._email = value;
+            }
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Admin.getRoleName = "Admin";
     return Admin;
 }(User));
-var admin = new Admin('08128244444', 'Tony', 25);
+/* let admin = new Admin('08128244444', 'Tony', 25);
 admin.getName();
 admin.getRole();
 admin.setName("abc");
 admin.phone;
+
+admin.email = 'admin@nicktra.com';
+console.log(admin.email); */
+var admin = Admin.getNameRole();
+console.log(admin);
